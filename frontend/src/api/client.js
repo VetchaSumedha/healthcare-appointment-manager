@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: '/api' });
+const api = axios.create({ baseURL: 'https://healthcare-appointment-manager-8yya.onrender.com/api' });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
