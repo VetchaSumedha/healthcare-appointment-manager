@@ -17,7 +17,14 @@ const medicationReminderJob = require('./jobs/medicationReminderJob');
 const emailRetryJob = require('./jobs/emailRetryJob');
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_URL || '*' }));
+   app.use(cors({
+     origin: [
+       'http://localhost:5173',
+       'https://healthcare-appointment-manager-git-main-sumedha8.vercel.app',
+       'https://healthcare-appointment-manager-8qmaysyxj-sumedha8.vercel.app'
+     ],
+     credentials: true
+   }));
 app.use(express.json());
 
 app.get('/health', (req, res) => res.json({ status: 'ok', time: new Date().toISOString() }));
